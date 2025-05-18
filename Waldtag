@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Waldtag Interaktive Karte</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      background: url('hintergrund.png') no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+    }
+    .container, .subpage {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: none;
+    }
+    .active {
+      display: block;
+    }
+    .kindergarten, .wald,.subpage-buttons {
+      position: absolute;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      justify-items: center;
+      transform: translateX(-50%);
+      z-index: 1000;
+    }
+    .kindergarten {
+      top: 15%;
+      left: 25%;
+    }
+    .wald {
+      top: 15%;
+      left: 75%;
+    }
+    .subpage-buttons {
+      top: 30%;
+      left: 50%;
+    }
+    .image-button, .bottom-button {
+      position: relative;
+      cursor: pointer;
+      opacity: 0.5;
+      transition: opacity 0.3s, transform 0.3s;
+      transform-origin: center center;
+      z-index: 1000;
+    }
+    .image-button:hover, .bottom-button:hover {
+      opacity: 1;
+      transform: scale(1.2) translate(-8.33%, -8.33%);
+      z-index: 9999;
+    }
+    .image-button img, .bottom-button img {
+      height: 150px;
+      width: auto;
+      border-radius: 10px;
+      border: 2px solid #a0522d;
+      z-index: 1000;
+    }
+    .popup {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: white;
+      border: 2px solid #8b4513;
+      padding: 10px;
+      z-index: 9999;
+      width: 200px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      border-radius: 10px;
+      opacity: 1 !important;
+      pointer-events: auto;
+    }
+    #popup2, #popup4, #popup6, #popup12, #popup15, #popup16, #popup17 {
+      width: 400px;
+  
+}
+    #popup18 {
+      width: 600px;
+    }
+
+    .bottom-left {
+      position: absolute;
+      left: 25%;
+      bottom: 15%;
+      transform: translateX(-205%);
+    }
+    tr:first-child td {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div id="mainpage" class="container active">
+  <div class="kindergarten">
+    <div class="image-button">
+      <img src="AA.png" alt="Anfang">
+ <div id="popup1" class="popup">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    table {
+      border-collapse: collapse;
+
+      font-family: Arial, sans-serif;
+    }
+    td {
+      border: none; /* Keine sichtbaren Linien */
+      padding: 6px;
+      vertical-align: top;
+    }
+    td:first-child {
+            width: 50px;}
+td:not(:first-child) {
+  width: 300px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2></h2>
+
+  <table>
+ <tr>
+      <td>Zu Besuch bei den Waldlingen</td>
+      <td></td>
+    </tr>
+     </table>
+</div>
+
+
+     
+    </div>
+    <div class="image-button">
+      <img src="WI.png" alt="Rucksack Checkliste">
+      <div id="popup2" class="popup">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    table {
+      border-collapse: collapse;
+
+      font-family: Arial, sans-serif;
+    }
+    td {
+      border: none; /* Keine sichtbaren Linien */
+      padding: 6px;
+      vertical-align: top;
+    }
+    td:first-child {
+            width: 50px;}
+td:not(:first-child) {
+  width: 300px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2></h2>
+
+  <table>
+ <tr>
+      <td>Zu Besuch bei den Waldlingen</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Thema:</td>
+      <td>Zu Besuch bei den Waldlingen</td>
+    </tr>
+    <tr>
+      <td>Dauer:</td>
+      <td>6 Stunden <br>(08:00 – 14:00)</td>
+    </tr>
+    <tr>
+      <td>Zielgruppe:</td>
+      <td>20 Kindergartenkinder,<br>4 – 6 Jahre</td>
+    </tr>
+    <tr>
+      <td>Ort:</td>
+      <td>Waldstück</td>
+    </tr>
+    <tr>
+      <td>Betreuungspersonen:</td>
+      <td>4 Erwachsene</td>
+    </tr>
+    <tr>
+      <td>Besonderheiten:</td>
+      <td>Ein Kind trägt Hörgeräte</td>
+    </tr>
+  </table>
+</div>
+    </div>
+    <div class="image-button">
+      <img src="VB.png" alt="Vorbereitungen">
+      <div id="popup3" class="popup">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    table {
+      border-collapse: collapse;
+
+      font-family: Arial, sans-serif;
+    }
+    td {
+      border: none; /* Keine sichtbaren Linien */
+      padding: 6px;
+      vertical-align: top;
+    }
+    td:first-child {
+      width: 200px;
+  </style>
+</head>
+<body>
+
+
+  <table>
+ <tr>
+      <td>Vorbereitende Tätigkeiten</td>
+      <td></td>
+    </tr>
+ <tr>
+      <td></td>
+      <td></td>
+    </tr>
+     <tr>
+      <td>Elternbrief</td>
+        </tr>
+    <tr>
+      <td>Material</td>
+         </tr>
+    <tr>
+      <td>Rucksack</td>
+          </tr>
+    <tr>
+      <td>Gelände erkunden</td>
+      </tr>
+  </table>
+</div>
+    </div>
+    <div class="image-button">
+      <img src="RP.png" alt="Elternbrief">
+      <div id="popup4" class="popup"><head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    table {
+      border-collapse: collapse;
+
+      font-family: Arial, sans-serif;
+    }
+    td {
+      border: none; /* Keine sichtbaren Linien */
+      padding: 6px;
+      vertical-align: top;
+    }
+    td:first-child {
+            width: 250px;
+td:not(:first-child) {
+  width: 400px;
+    }
+  </style>
+</head>
+<body>
+
+  
+
+  <table>
+ <tr>
+      <td>Rucksack der Pädagogin</td>
+      <td>Rucksack der Kinder</td>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Erste-Hilfe-Tasche</td>
+      <td>Jause und Wasser</td>
+    </tr>
+    <tr>
+      <td>Ersatzjause und Wasser</td>
+      <td>Ersatzkleidung</td>
+    </tr>
+    <tr>
+      <td>Müllsäcke</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Feuchttücher</td>
+      <td></td>
+    </tr>
+      </table></div>
+    </div>
+  </div>
+
+  <div class="wald">
+    <div class="image-button">
+      <img src="SG.png" alt="Dorf bauen">
+      <div id="popup5" class="popup"
+<meta charset="UTF-8">
+  <title></title>
+  <style>
+    table {
+      border-collapse: collapse;
+
+      font-family: Arial, sans-serif;
+    }
+    td {
+      border: none; /* Keine sichtbaren Linien */
+      padding: 6px;
+      vertical-align: top;
+    }
+    td:first-child {
+      width: 200px;
+  </style>
+</head>
+<body>
+
+
+  <table>
+     <tr>
+      <td>Beginn<td>
+        </tr>
+
+     <tr>
+      <td>Spaziergang zur Bushaltestelle</td>
+        </tr>
+    <tr>
+      <td>Busfahrt</td>
+         </tr>
+    <tr>
+      <td>Waldspaziergang</td>
+          </tr>
+
+  </table>
+</div>
+    </div>
+    <div class="image-button">
+      <img src="JE.png" alt="Jause essen">
+      <div id="popup6" class="popup">
+<img src="GK.png" alt="Beschreibung des Bildes" style="width: 100%;height: auto; border-radius: 5px; margin-bottom: 10px;">
+<meta charset="UTF-8">
+  <title></title>
+  <style>
+    table {
+      border-collapse: collapse;
+
+      font-family: Arial, sans-serif;
+    }
+    td {
+      border: none; /* Keine sichtbaren Linien */
+      padding: 6px;
+      vertical-align: top;
+    }
+    td:first-child {
+      width: 200px;
+  </style>
+</head>
+<body>
+
+
+  <table>
+     <tr>
+      <td>Orientierungsphase</td>
+        </tr>
+
+     <tr>
+      <td>Begrüßung</td>
+        </tr>
+    <tr>
+      <td>Mitteilungsrunde</td>
+         </tr>
+    <tr>
+      <td>Gefühle wahrnehmen und beschreiben - Gefühlskarte</td>
+          </tr>
+    <tr>
+      <td>Regeln besprechen</td>
+          </tr>
+    <tr>
+      <td>Jause essen</td>
+          </tr>
+
+  </table>
+</div>
+    </div>
+    <div class="image-button">
+      <img src="BB.png" alt="Waldling bauen">
+      <div id="popup7" class="popup">
+<meta charset="UTF-8">
+  <title></title>
+  <style>
+    table {
+      border-collapse: collapse;
+
+      font-family: Arial, sans-serif;
+    }
+    td {
+      border: none; /* Keine sichtbaren Linien */
+      padding: 6px;
+      vertical-align: top;
+    }
+    td:first-child {
+      width: 200px;
+  </style>
+</head>
+<body>
+
+
+  <table>
+
+    <tr>
+      <td>Produktionsphase</td>
+        </tr>
+     <tr>
+      <td>Bilderbuch erzählen</td>
+        </tr>
+
+    
+  </table>
+
+</div>
+    </div>
+    <div class="image-button">
+      <img src="WB.png" alt="Bewegungsspiele">
+      <div id="popup8" class="popup">
+<meta charset="UTF-8">
+  <title></title>
+  <style>
+    table {
+      border-collapse: collapse;
+
+      font-family: Arial, sans-serif;
+    }
+    td {
+      border: none; /* Keine sichtbaren Linien */
+      padding: 6px;
+      vertical-align: top;
+    }
+    td:first-child {
+      width: 200px;
+  </style>
+</head>
+<body>
+
+
+  <table>
+     <tr>
+      <td>Präsentationsphase</td>
+        </tr>
+    <tr>
+      <td>Waldlinge herstellen</td>
+        </tr>
+    <tr>
+      <td>Waldlinge präsentieren</td>
+        </tr>
+
+  </table>
+</div>
+    </div>
+    <div class="image-button">
+      <img src="WD.png" alt="Ende">
+      <div id="popup9" class="popup">
+<meta charset="UTF-8">
+  <title></title>
+  <style>
+    table {
+      border-collapse: collapse;
+
+      font-family: Arial, sans-serif;
+    }
+    td {
+      border: none; /* Keine sichtbaren Linien */
+      padding: 6px;
+      vertical-align: top;
+    }
+    td:first-child {
+      width: 200px;
+  </style>
+</head>
+<body>
+
+
+  <table>
+     <tr>
+      <td>Aktionsphase</td>
+        </tr>
+
+    <tr>
+      <td>Waldlinge-Dorf bauen</td>
+         </tr>
+    <tr>
+      <td>Reflexionsrunde</td>
+         </tr>
+ 
+  
+  </table>
+</div>
+    </div>
+    <div class="image-button">
+      <img src="FW1.png" alt="Freies Spielen">
+      <div id="popup10" class="popup">
+<meta charset="UTF-8">
+  <title></title>
+  <style>
+    table {
+      border-collapse: collapse;
+
+      font-family: Arial, sans-serif;
+    }
+    td {
+      border: none; /* Keine sichtbaren Linien */
+      padding: 6px;
+      vertical-align: top;
+    }
+    td:first-child {
+      width: 200px;
+  </style>
+</head>
+<body>
+
+
+  <table>
+     <tr>
+      <td>Freispielphase</td>
+        </tr>
+
+     <tr>
+      <td>Freies spielen im Wald<td>
+        </tr>
+  <tr>
+      <td>Jause essen<td>
+        </tr>
+
+    </table>
+</div>
+    </div>
+    <div class="image-button">
+      <img src="FW.png" alt="Freies Waldspiel">
+      <div id="popup12" class="popup">
+
+        <table>
+          <tr><td>Reflexionsphase</td></tr>
+          <tr><td>Freundschaftsritual</td></tr>
+          <tr><td>Abschlussrunde</td></tr>
+          <tr><td>Gefühle wahrnehmen und beschreiben - Gefühlskarte</td></tr>
+          <tr><td>Entspannung</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="image-button" onclick="togglePopup('popup13')">
+      <img src="SG1.png" alt="Zusätzliche Spielgruppe">
+      <div id="popup13" class="popup">
+<table>
+          <tr><td>Ende</td></tr>
+          <tr><td>Waldspaziergang</td></tr>
+          <tr><td>Busfahrt</td></tr>
+          
+        </table>
+
+</div>
+    </div>
+    <div class="image-button">
+      <img src="EE.png" alt="Ende Erleben">
+<div id="popup14" class="popup">
+
+        <table>
+          <tr><td>Danke für die Aufmerksamkeit</td></tr>
+ 
+        </table>
+      </div>
+    </div>
+ </div>
+
+<div class="bottom-left">
+    <div class="bottom-button" onclick="showSubpage()">
+      <img src="WI1.png" alt="Weiter">
+    </div>
+  </div>
+</div>
+
+   </div>
+<div id="subpage" class="subpage">
+  <div class="subpage-buttons">
+    <div class="image-button">
+      <img src="XWR.png" alt="XWR">
+      <div id="popup15" class="popup">
+<meta charset="UTF-8">
+  <title></title>
+  <style>
+    table {
+      border-collapse: collapse;
+
+      font-family: Arial, sans-serif;
+    }
+    td {
+      border: none; /* Keine sichtbaren Linien */
+      padding: 6px;
+      vertical-align: top;
+    }
+    td:first-child {
+      width: 400px;
+  </style>
+</head>
+<body>
+
+
+  <table>
+     <tr>
+      <td>Waldregeln</td>
+        </tr>
+
+     <tr>
+      <td>Zusammenbleiben</td>
+        </tr>
+    <tr>
+      <td>Signal beachten</td>
+         </tr>
+    <tr>
+      <td>Auf die Natur achten</td>
+          </tr>
+    <tr>
+      <td>Nur nehmen, was schon auf dem Boden liegt</td>
+          </tr>
+    <tr>
+      <td>Was im Wald war, bleibt im Wald – Außer unser Müll</td>
+          </tr>
+    <tr>
+      <td>Gefahrenquelle</td>
+          </tr>
+    </table>
+</div>
+    </div>
+    <div class="image-button">
+      <img src="XVR.png" alt="XVR">
+      <div id="popup16" class="popup">
+<meta charset="UTF-8">
+  <title></title>
+  <style>
+    table {
+      border-collapse: collapse;
+
+      font-family: Arial, sans-serif;
+    }
+    td {
+      border: none; /* Keine sichtbaren Linien */
+      padding: 6px;
+      vertical-align: top;
+    }
+    td:first-child {
+      width: 400px;
+  </style>
+</head>
+<body>
+
+
+  <table>
+     <tr>
+      <td>Kommunikations- und Verhaltensregeln</td>
+        </tr>
+
+     <tr>
+      <td>Wir sind eine Gruppe</td>
+        </tr>
+    <tr>
+      <td>Respekt</td>
+         </tr>
+    <tr>
+      <td>Gefühle, Wünsche und Anregungen sind wichtig</td>
+          </tr>
+    <tr>
+      <td>Busregeln</td>
+          </tr>
+    <tr>
+      <td>Verantwortung für Rucksack</td>
+          </tr>
+
+    </table>
+</div>
+    </div>
+    <div class="image-button">
+      <img src="XKR.png" alt="XKR">
+      <div id="popup17" class="popup">
+<meta charset="UTF-8">
+  <title></title>
+  <style>
+    table {
+      border-collapse: collapse;
+
+      font-family: Arial, sans-serif;
+    }
+    td {
+      border: none; /* Keine sichtbaren Linien */
+      padding: 6px;
+      vertical-align: top;
+    }
+    td:first-child {
+      width: 400px;
+  </style>
+</head>
+<body>
+
+
+  <table>
+     <tr>
+      <td>Wichtige Details</td>
+        </tr>
+
+     <tr>
+      <td>Waldtoilette</td>
+        </tr>
+    <tr>
+      <td>Hörgerät</td>
+         </tr>
+    <tr>
+      <td>Trinkpause</td>
+          </tr>
+    <tr>
+      <td>Freispielzeit wichtig</td>
+          </tr>
+    <tr>
+      <td>Reflexion kurzgehalten, dennoch wichtig</td>
+          </tr>
+
+    </table>
+</div>
+    </div>
+    <div class="image-button">
+      <img src="XZ.png" alt="XZ">
+      <div id="popup18" class="popup">
+<meta charset="UTF-8">
+  <title></title>
+  <style>
+    table {
+      border-collapse: collapse;
+
+      font-family: Arial, sans-serif;
+    }
+    td {
+      border: none; /* Keine sichtbaren Linien */
+      padding: 6px;
+      vertical-align: top;
+    }
+    td:first-child {
+      width: 600px;
+  </style>
+</head>
+<body>
+
+
+  <table>
+     <tr>
+      <td>Wichtigste Ziele</td>
+        </tr>
+
+     <tr>
+      <td>Naturerfahrungen sammeln und Umweltbewusstsein stärken</td>
+        </tr>
+    <tr>
+      <td>Sozialkompetenzen und Persönlichkeitsentwicklung</td>
+         </tr>
+    <tr>
+      <td>Motorische Fähigkeiten und Fertigkeiten fördern</td>
+          </tr>
+    <tr>
+      <td>Kreativität fördern</td>
+          </tr>
+    <tr>
+      <td>Fantasie anregen und Vorstellungskraft verbessern</td>
+          </tr>
+    <tr>
+      <td><b>Ein ganz, ganz großes Ziel: Freude und Spaß in und mit der Natur erleben :)</td>
+          </tr>
+
+    </table>
+</div>
+    </div>
+
+  </div>
+
+
+
+  <div class="bottom-left">
+    <div class="bottom-button" onclick="showMainpage()">
+      <img src="WI1.png" alt="Zurück">
+    </div>
+  </div>
+</div>
+
+<script>
+let activePopup = null;
+let activeButton = null;
+
+function showPopup(button) {
+  const popup = button.querySelector('.popup');
+  document.querySelectorAll('.popup').forEach(p => p.style.display = 'none');
+  activePopup = popup;
+  activeButton = button;
+
+  if (popup) {
+    popup.style.display = 'block';
+  }
+}
+
+document.querySelectorAll('.image-button').forEach(button => {
+  button.addEventListener('click', () => {
+    const isAlreadyOpen = activePopup && button.contains(activePopup);
+    if (isAlreadyOpen) {
+      activePopup.style.display = 'none';
+      activePopup = null;
+    } else {
+      showPopup(button);
+    }
+  });
+
+  button.addEventListener('mouseleave', (e) => {
+    setTimeout(() => {
+      if (activePopup && !activePopup.matches(':hover') && !button.matches(':hover')) {
+        activePopup.style.display = 'none';
+        activePopup = null;
+      }
+    }, 100);
+  });
+});
+
+document.addEventListener('click', function(e) {
+  if (
+    activePopup &&
+    !e.target.closest('.popup') &&
+    !e.target.closest('.image-button')
+  ) {
+    activePopup.style.display = 'none';
+    activePopup = null;
+  }
+});
+
+function showSubpage() {
+  document.getElementById('mainpage').classList.remove('active');
+  document.getElementById('subpage').classList.add('active');
+}
+
+function showMainpage() {
+  document.getElementById('subpage').classList.remove('active');
+  document.getElementById('mainpage').classList.add('active');
+}
+</script>
+
+</body>
+</html>
